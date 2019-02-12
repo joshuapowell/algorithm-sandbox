@@ -29,4 +29,23 @@ Describe:
 
 """
 
+def all_prime():
+    """Generate a list of all prime numbers between 0 and 100."""
 
+    tmp_data = range(0, 100)
+
+    for index, value in enumerate(tmp_data):
+        if value % 2 == 0:
+            tmp_data.pop(index)
+    
+    return tmp_data
+
+data = all_prime()
+
+minimum = 0
+maximum = len(data)
+
+def example_1():
+    pass
+    
+example_1()
