@@ -52,18 +52,23 @@ def example_1(data, targetValue):
 
     min_ = 0
     max_ = len(data)-1
-    guess = None 
+    guess = None
+    guessCounter = 1
 
     while max_ >= min_:
 
         guess = int(math.floor((min_+max_)/2))
+        print "Current guess", guess
     
         if data[guess] == targetValue:
+            print "It took %s guess to find the target value" % (guessCounter)
             return guess
         elif data[guess] < targetValue:
             min_ = guess + 1
         elif data[guess] > targetValue:
             max_ = guess - 1
+
+        guessCounter = guessCounter + 1
 
 test = example_1(static_primes, 73)
 
