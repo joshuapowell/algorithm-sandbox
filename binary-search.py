@@ -29,10 +29,14 @@ Describe:
 
 """
 
+
+import math
+
+
 def all_prime():
     """Generate a list of all prime numbers between 0 and 100."""
 
-    tmp_data = range(0, 100)
+    tmp_data = range(0, 97)
 
     for index, value in enumerate(tmp_data):
         if value % 2 == 0:
@@ -40,12 +44,28 @@ def all_prime():
     
     return tmp_data
 
-data = all_prime()
+primes = all_prime()
 
-minimum = 0
-maximum = len(data)
+static_primes =  [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
 
-def example_1():
-    pass
+def example_1(data, targetValue):
+
+    min_ = 0
+    max_ = len(data)-1
+    guess = None 
+
+    while max_ >= min_:
+
+        guess = int(math.floor((min_+max_)/2))
     
-example_1()
+        if data[guess] == targetValue:
+            return guess
+        elif data[guess] < targetValue:
+            min_ = guess + 1
+        elif data[guess] > targetValue:
+            max_ = guess - 1
+
+test = example_1(static_primes, 73)
+
+print "Data", primes
+print "Found prime at index", test
